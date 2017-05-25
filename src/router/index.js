@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 // import two from '@/views/two'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
     routes: [
@@ -21,5 +21,9 @@ export default new Router({
             path: '/',
             component: require('views/prepare')
         },
+        {
+            path: '/login',
+            component: require('views/login')
+        }
     ]
 })
