@@ -46,6 +46,8 @@
         width: 100%;
         height: 2.25rem;
         background: #323232;
+        position: fixed;
+        top: 0;
     }
 
     .nav-header-list {

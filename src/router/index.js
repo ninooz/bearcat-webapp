@@ -5,6 +5,10 @@ Vue.use(VueRouter);
 var router = new VueRouter({
     routes: [
         {
+            path: '/navFooter',
+            component: require('components/nav-footer')
+        },
+        {
             path: '/navHeader',
             component: require('components/nav-header')
         },

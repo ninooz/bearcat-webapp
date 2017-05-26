@@ -1,46 +1,75 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>这是自定义的内容</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-  </div>
+    <div class="hello">
+        <headers></headers>
+        <h1>{{ msg }}</h1>
+        <h1>{{ msg }}</h1>
+        <h1>{{ msg }}</h1>
+        <h2>这是自定义的内容</h2>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <p>{{ msg }}</p>
+        <input type="text" v-model="options" @keyup.enter="addNew">
+        <input type="text">
+        <ul>
+            <li v-for="item in items">{{item}}</li>
+        </ul>
+        <footers></footers>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: 'hello',
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
-      }
+    var self;
+    var utils = require('utils/utils');
+    var footers = require('components/nav-footer');
+    var headers = require('components/nav-header');
+    export default {
+        name: 'hello',
+        data () {
+            return {
+                msg: 'Welcome to Your Vue.js App',
+                options: '',
+                items: [],
+                item: ''
+            }
+        },
+        created: function () {
+            self = this;
+        },
+        watch: {
+            'items': function (items) {
+                utils.setItems(self.items);
+            }
+        },
+        mounted: function () {
+//            console.log(utils);
+            var it = [];
+            it = utils.getItems();
+            if (it.length > 0) {
+                self.item = it.split(',');
+                for (var i = 0; i < self.item.length; i++) {
+                    self.items.push(self.item[i]);
+                }
+            }
+        },
+        methods: {
+            addNew: function () {
+                self.items.push(self.options);
+                self.options = '';
+            }
+        },
+        components: {
+            footers: footers,
+            headers: headers
+        }
     }
-  }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
 </style>
