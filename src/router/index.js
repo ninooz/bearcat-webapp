@@ -1,21 +1,20 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
-// import two from '@/views/two'
+var VueRouter = require('vue-router');
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
+var router = new VueRouter({
     routes: [
         {
-            path: '/Hello',
-            name: 'Hello',
-            component: Hello
+            path: '/navHeader',
+            component: require('components/nav-header')
+        },
+        {
+            path: '/newsHome',
+            component: require('views/news-home')
         },
         {
             path: '/two',
             component: require('views/two')
-            // component: two
         },
         {
             path: '/',
@@ -26,4 +25,5 @@ export default new Router({
             component: require('views/login')
         }
     ]
-})
+});
+module.exports = router;

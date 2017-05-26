@@ -1,5 +1,6 @@
 var path = require('path')
 var utils = require('./utils')
+var webpack = require('webpack')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
@@ -21,12 +22,13 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js',
+            'vue$': 'vue/dist/vue.js',
             'vue-router$': 'vue-router/dist/vue-router.common.js',
             'vuex$': 'vuex/dist/vuex.js',
             '@': resolve('src'),
             'components': '@/components',
             'views': '@/views',
+            'api': '@/api',
             'utils': '@/utils'
         }
     },
@@ -69,5 +71,12 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            _: 'lodash',
+            Vue: 'vue',
+            moment: 'moment'
+        })
+    ]
 }
