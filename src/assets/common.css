@@ -5,6 +5,8 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /*清除浏览器默认行为*/
+    touch-action: none;
 }
 
 html {

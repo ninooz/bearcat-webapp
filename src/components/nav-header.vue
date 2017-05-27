@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="content nav-header">
+        <nav class="content nav-header">
             <ul class="nav-header-list" :style="{width:UlWidth}">
                 <li class="list-options" v-for="(option, index) in options" @click="location = index"><span :class="{'list-options-active': location == index}">{{option}}</span></li>
             </ul>
             <div class="icon-nav"><div class="list-options-icon"></div></div>
-        </div>
+        </nav>
     </div>
 </template>
 

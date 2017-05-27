@@ -1,5 +1,6 @@
 <template>
     <div class="hello">
+        <div class="main">
         <headers></headers>
         <h1>{{ msg }}</h1>
         <h1>{{ msg }}</h1>
@@ -17,9 +18,11 @@
         <p>{{ msg }}</p>
         <input type="text" v-model="options" @keyup.enter="addNew">
         <input type="text">
+        <p>{{ msg }}</p><p>{{ msg }}</p><p>{{ msg }}</p><p>{{ msg }}</p>
         <ul>
             <li v-for="item in items">{{item}}</li>
         </ul>
+        </div>
         <footers></footers>
     </div>
 </template>
@@ -72,4 +75,11 @@
 </script>
 
 <style scoped>
+    .hello{
+        position: relative;
+    }
+
+    .main{
+        overflow: scroll;
+    }
 </style>
