@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/details.css"/>
+</head>
+<body>
+
+<div id="detailsTittleBox">
+    <h3 class="tittle">{{message}}</h3>
+    <p class="tips">
+        <span class="detailsTypes">{{message2}}</span>
+        <span class="detailsTime">{{message3}}</span>
+        <span class="newsFrom">{{message4}}</span>
+    </p>
+</div>
+<div id="detailsVideoBox">
+    <video id="video" autoplay controls v-bind:src="url" ></video>
+</div>
+<div id="detailsInform">
+    <p>{{message5}}</p>
+</div>
+<div id="detailsFooter">
+    <span class="back">
+        <a href="#">
+            <img src="img/back.png" alt=""/>
+        </a>
+    </span>
+    <span class="news">
+        <a href="comment.html">
+            <img src="img/news.png" alt=""/><i class="num">{{message6}}</i>
+        </a>
+    </span>
+    <div class="right">
+        <span class="good"><img src="img/zan.png" alt=""/><i class="num">{{message7}}</i></span>
+        <span class="save"><img src="img/sc.png" alt=""/></span>
+        <span class="link"><img src="img/fx.png" alt=""/></span>
+    </div>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="js/details.js"></script>
+</body>
+</html>
