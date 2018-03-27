@@ -1,6 +1,7 @@
 var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
+var webpack = require('webpack')
 var vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve(dir) {
@@ -21,27 +22,16 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js',
+            'vue$': 'vue/dist/vue.js',
             'vue-router$': 'vue-router/dist/vue-router.common.js',
-            'vuex$': 'vuex/dist/vuex.js',
             '@': resolve('src'),
-            'components': '@/components',
+            'api': '@/api',
             'views': '@/views',
             'utils': '@/utils'
         }
     },
     module: {
         rules: [
-            // {
-            //     test: /\.(js|vue)$/,
-            //     loader: 'eslint-loader',
-            //     enforce: "pre",
-            //     include: [resolve('src'), resolve('test')],
-            //     exclude: [/node_modules/, /libs/],
-            //     options: {
-            //         formatter: require('eslint-friendly-formatter')
-            //     }
-            // },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -69,5 +59,12 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            _: 'lodash',
+            Vue: 'vue',
+            moment: 'moment'
+        })
+    ]
 }

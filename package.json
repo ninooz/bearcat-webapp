@@ -2,7 +2,7 @@
   "name": "bearcat-webapp",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "jqsy",
+  "author": "majw",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -17,8 +17,7 @@
     "promise-polyfill": "^6.0.2",
     "socket.io-client": "^1.7.3",
     "vue": "^2.2.2",
-    "vue-router": "^2.2.0",
-    "vuex": "^2.2.1"
+    "vue-router": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
