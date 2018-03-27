@@ -1,25 +1,12 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
-// import two from '@/views/two'
+var VueRouter = require('vue-router');
+Vue.use(VueRouter);
 
-Vue.use(Router)
-
-export default new Router({
+var router = new VueRouter({
     routes: [
-        {
-            path: '/Hello',
-            name: 'Hello',
-            component: Hello
-        },
-        {
-            path: '/two',
-            component: require('views/two')
-            // component: two
-        },
         {
             path: '/',
             component: require('views/prepare')
-        },
+        }
     ]
-})
+});
+module.exports = router;
